@@ -1,0 +1,38 @@
+# Arrays for products and their corresponding prices
+add_ins = ["Milk", "Vanilla", "Chocolate", "Cinnamon", "Whipped cream"]
+prices = [0.50, 0.25, 0.59, 1.20, 0.75]
+
+# Coffee base price
+coffee_price = 2.00
+
+# Initialize total price to the coffee base price
+total_price = coffee_price
+
+print(f"Welcome to Jumpin' Jive Coffee Shop! A cup of coffee costs {coffee_price}.")
+print("Here are the available add-ins:")
+
+# Display available add-ins
+for x in range(len(add_ins)):
+    print(f"{add_ins[x]}: ${prices[x]}")
+
+print("\nPlease enter the add-ins you want, or type 'done' to finish.")
+
+# Main loop to get user inputs
+while True:
+    user_input = input("\nEnter an add-in (or type 'done' to finish): ").strip().capitalize()
+    # Check if user wants to stop ordering
+    if user_input.lower() == 'done':
+        break
+
+    # Check if the add-in is available in the list
+    if user_input in add_ins:
+        index = add_ins.index(user_input)  # Get the index of the add-in
+        item_price = prices[index]  # Get the price using the same index
+        total_price += item_price  # Add the price to the total
+        print(f"{user_input} added for ${item_price}.")
+    else:
+        print("Sorry, we do not carry that add-in.")
+
+# Display the total price
+print(f"\nYour total price for the coffee is: ${total_price}")
+
